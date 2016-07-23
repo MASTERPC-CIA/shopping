@@ -26,23 +26,8 @@
     <?php
         echo input(array('type'=>'hidden','id'=>'main_path','value'=>  base_url()));    
         $css = array(
-            base_url('resources/bootstrap-3.2.0/css/bootstrap.min.css'),
-            base_url('resources/bootstrap-3.2.0/css/bootstrap-theme.css'),
-            base_url('resources/js/libs/combobox/css/bootstrap-combobox.css'),    
-            base_url('assets/grocery_crud/css/ui/simple/jquery-ui-1.10.1.custom.min.css'),   
-            base_url('assets/grocery_crud/themes/datatables/css/demo_table_jui.css'),
-            base_url('assets/grocery_crud/themes/datatables/css/datatables.css'),
-            base_url('resources/css/timepicki.css'),
-            base_url('resources/css/jquery-customselect.css'),
-            base_url('resources/css/estilos.css'),
-            base_url('assets/grocery_crud/themes/datatables/css/jquery.dataTables.css'),
-            base_url('resources/css/datepicker.css'),    
-            base_url('resources/js/libs/sco.js/css/sco.message.css'),
-            base_url('resources/js/libs/jsPanel-bootstrap/source/jsPanel.css'),
-            base_url('resources/js/libs/autosuggest/css/style.css'),
-            base_url('resources/js/libs/pick-a-color/build/1.2.3/css/pick-a-color-1.2.3.min.css'),
-            base_url('resources/css/style.css'),
-                base_url('resources/css/style/style.css'),
+
+            base_url('resources/css/style/style.css'),
                 base_url('resources/css/style/bootstrap.min.css'),
                 base_url('resources/css/style/font-awesome.min.css'),
                 base_url('resources/css/style/owl.carousel.css'),
@@ -50,59 +35,13 @@
                 base_url('resources/css/style/menu.css'), 
                  
                  
-                base_url('resources/fonts/css'),
-                base_url('resources/fonts/css(1)'),
-                base_url('resources/fonts/css(2)'), 
+
 
         );
         echo csslink($css);    
     
         $js = array(
-            base_url('assets/grocery_crud/js/jquery-1.10.2.min.js'),
-            base_url('resources/js/modules/comunes.js'),
-            base_url('assets/grocery_crud/js/jquery_plugins/jquery.noty.js'),
-            base_url('assets/grocery_crud/js/jquery_plugins/config/jquery.noty.config.js'),
-            base_url('assets/grocery_crud/js/common/lazyload-min.js'),
-            base_url('assets/grocery_crud/js/common/list.js'),
-            base_url('assets/grocery_crud/themes/datatables/js/jquery.dataTables.min.js'),
-            base_url('assets/grocery_crud/themes/datatables/js/datatables-extras.js'),
-            base_url('assets/grocery_crud/themes/datatables/extras/TableTools/media/js/ZeroClipboard.js'),
-            base_url('assets/grocery_crud/themes/datatables/extras/TableTools/media/js/TableTools.min.js'),
-            base_url('assets/grocery_crud/js/jquery_plugins/ui/jquery-ui-1.10.3.custom.min.js'),    
-            base_url('resources/bootstrap-3.2.0/js/bootstrap.min.js'),
-            base_url('resources/js/comunes/printThis.js'),
-            base_url('resources/js/libs/sco.js/js/sco.valid.js'),
-            base_url('resources/js/libs/sco.js/js/sco.modal.js'),
-            base_url('resources/js/libs/sco.js/js/sco.message.js'),
-            base_url('resources/js/libs/sco.js/js/sco.ajax.js'),
-            base_url('resources/js/libs/jform/jquery.form.js'),
-            base_url('resources/js/bootstrap-datepicker.js'),
-            base_url('resources/js/bootstrap-datepicker.es.js'),
-            base_url('resources/js/jquery-customselect.js'),
-            base_url('resources/js/timepicki.js'),
-            base_url('resources/js/libs/autosuggest/bootstrap-typeahead.js'),
-            base_url('resources/js/libs/autosuggest/hogan-2.0.0.js'),
-            base_url('resources/js/libs/jsPanel/source/AC_RunActiveContent.js'),
-            base_url('resources/js/libs/jsPanel-bootstrap/source/jquery.jspanel.bs-1.4.0.min.js'),              
-            base_url('resources/js/libs/combobox/js/bootstrap-combobox.js'),
-            base_url('resources/js/libs/numeric/jquery.numeric.js'),
-            base_url('resources/js/libs/combobox/js/bootstrap-combobox.js'),    
-            base_url('resources/js/libs/pick-a-color/build/dependencies/tinycolor-0.9.15.min.js'),    
-            base_url('resources/js/libs/pick-a-color/src/js/pick-a-color.js'),    
-            base_url('resources/js/comunes/jquery.blockUI.js'),     
-           
-            base_url('resources/sb_admin/js/plugins/metisMenu/metisMenu.min.js'),
-            base_url('resources/sb_admin/js/sb-admin-2.js'),
-            base_url('resources/js/modules/compras_fecha_fvencefact.js'),
-
-            base_url('resources/js/angularjs/angular.min.js'),
-            base_url('resources/js/angularjs/pagination.js'),
-            base_url('resources/js/angularjs/ui-bootstrap-tpls-0.11.2.min.js'),
-            base_url('resources/js/angularjs/underscore.min.js'),
-            base_url('resources/js/angularjs/angular-route.min.js'),
-            base_url('resources/js/angularjs/angular-animate.min.js'),
-            base_url('resources/js/angularjs/ngprogress.js'),
-            base_url('resources/js/modules/cambiar_titulos_head.js'),
+          
             
             base_url('resources/js/portal/portal/jquery.easing.1.3.min.js'),
             base_url('resources/js/portal/jquery.min.js'),

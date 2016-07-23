@@ -71,7 +71,7 @@
  
 
 <?php 
-
+echo $view; ?>
         
        
  
