@@ -11,9 +11,9 @@ Class Index extends MX_Controller
     function index()
     {
 //            $res['title'] = 'Bienvenido '.$this->user->nombres;
-            $res['img_banner'] = $this->generic_model->get('bill_empre_images',array('deleted ='=>0));
-            $res['setions'] = $this->generic_model->get('bill_empre_sections');
-            $this->load->view('index',$res);
+           // $res['img_banner'] = $this->generic_model->get('bill_empre_images',array('deleted ='=>0));
+            //$res['setions'] = $this->generic_model->get('bill_empre_sections');
+            //$this->load->view('index',$res);
 //            $res['slidebar'] = $this->load->view('slidebar','',TRUE);
 //            $this->load->view('templates/dashboard',$res);
             
@@ -21,6 +21,10 @@ Class Index extends MX_Controller
    //    $res['slidebar'] = $this->load->view('slidebar','',TRUE);
    //    $res['slidebar'] = '';
    //    $this->load->view('dashboard',$res);     
+        
+        redirect( base_url('shopping_cart/productos') , 'refresh');
+        
+        
     }
  
 //    public function acceso_client(){
@@ -53,7 +57,7 @@ Class Index extends MX_Controller
 //
 //        $this->session->set_userdata($newdata);        
 //        
-//    }
+    
     
     function logout()
     {
