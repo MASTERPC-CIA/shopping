@@ -22,7 +22,7 @@ Class Index extends MX_Controller
    //    $res['slidebar'] = '';
    //    $this->load->view('dashboard',$res);     
         
-        redirect( base_url('shopping_cart/productos') , 'refresh');
+        redirect('shopping_cart/productos' , 'refresh');
         
         
     }
