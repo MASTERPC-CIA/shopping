@@ -5,11 +5,10 @@
                 <div class="col-md-5 col-sm-8">
                     <div class="footer-about-us">
                         <h2>Master<span>PC</span></h2>
-                        <p>
-						
-						Master Pc Cía. Ltda. Es un icono de la tecnología en el sur del país, posicionándose como líder de tecnología en la región sur
-						por su participación en el mercado, cantidad de clientes y volumen de ventas, este plan consiste en aclarar lo que pretendemos conseguir y como proponemos conseguirlo.
-						</p>
+                         <?php
+                            $text=get_info('ABOUT_US');
+                            echo substr($text , 253, 368);
+                        ?>
                         <div class="footer-social">
                             <a href="https://www.facebook.com/masterpcloja/" target="_blank"><i class="fa fa-facebook"></i></a>
                             <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>

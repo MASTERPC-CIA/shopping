@@ -47,7 +47,7 @@ class Cart extends MX_Controller{
             $res['slidebar'] = $this->load->view('slidebar', $res_slidebar, TRUE);
             //$res['top_nav_actions'] = $this->load->view('top_nav_actions', $datah, TRUE);        
             $res['setions'] = $this->generic_model->get('bill_empre_sections');
-            $res = $this->load->view('common/templates/dashboard_lte',$res);            
+            $res = $this->load->view('common/templates/dashboard_lte_portal',$res);            
     }
     
     public function add_product() {

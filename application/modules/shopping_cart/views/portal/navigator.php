@@ -98,7 +98,7 @@
                                 echo '<li>';
                                 echo Open('a', array('href' => $value->uri, 'data-toggle' => "modal"));
 
-                                echo tagcontent('p', $value->name);
+                                echo tagcontent('div', $value->name);
                                 echo Close('a');
                                 echo '</li>';
                             }

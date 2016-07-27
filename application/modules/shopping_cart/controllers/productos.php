@@ -450,7 +450,7 @@ class Productos extends MX_Controller {
         );
         $res['slidebar'] = $this->load->view('slidebar', $res_slidebar, TRUE);
         $res['setions'] = $this->generic_model->get('bill_empre_sections');
-        $res = $this->load->view('common/templates/dashboard_lte_potal', $res);
+        $res = $this->load->view('common/templates/dashboard_lte_portal', $res);
     }
 
     public function load_image() {
