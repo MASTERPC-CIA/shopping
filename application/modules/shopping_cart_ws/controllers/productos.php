@@ -107,7 +107,7 @@ class Productos extends MX_Controller {
         $res['view'] = $this->load->view('front/content', $datac, TRUE);
         $res['slidebar'] = $this->load->view('slidebar', $res_slidebar, TRUE);
         //$res['top_nav_actions'] = $this->load->view('top_nav_actions', $datah, TRUE);        
-        $res = $this->load->view('common/templates/dashboard_lte', $res);
+        $res = $this->load->view('common/templates/dashboard_lte_portal', $res);
     }
 
     private function products_in_bod($productos) {
@@ -291,7 +291,7 @@ class Productos extends MX_Controller {
         $res['view'] = $this->load->view('products', $datah, TRUE);
         $res['slidebar'] = $this->load->view('slidebar', $res_slidebar, TRUE);
         //$res['top_nav_actions'] = $this->load->view('top_nav_actions', $datah, TRUE);        
-        $res = $this->load->view('common/templates/dashboard_lte', $res);
+        $res = $this->load->view('common/templates/dashboard_lte_portal', $res);
     }
 
     private function array_prod_bodegas($prod_bod_stock) {
@@ -384,7 +384,7 @@ class Productos extends MX_Controller {
         $res['view'] = $this->load->view('products', $data, TRUE);
         $res['slidebar'] = $this->load->view('slidebar', $res_slidebar, TRUE);
         //$res['top_nav_actions'] = $this->load->view('top_nav_actions', $datah, TRUE);        
-        $res = $this->load->view('common/templates/dashboard_lte', $res);
+        $res = $this->load->view('common/templates/dashboard_lte_portal', $res);
     }
 
     public function product_detail() {
@@ -457,7 +457,7 @@ class Productos extends MX_Controller {
                 array('nombre' => 'asc')
         );
         $res['slidebar'] = $this->load->view('slidebar', $res_slidebar, TRUE);
-        $res = $this->load->view('common/templates/dashboard_lte', $res);
+        $res = $this->load->view('common/templates/dashboard_lte_portal', $res);
     }
 
     public function load_image() {
@@ -600,7 +600,7 @@ class Productos extends MX_Controller {
         $res['view'] = $this->load->view('products', $data, TRUE);
         $res['slidebar'] = $this->load->view('slidebar', $res_slidebar, TRUE);
 //            $res['top_nav_actions'] = $this->load->view('top_nav_actions', $datah, TRUE);        
-        $res = $this->load->view('common/templates/dashboard_lte', $res);
+        $res = $this->load->view('common/templates/dashboard_lte_portal', $res);
     }
 
     public function send_notify_email() {
