@@ -457,7 +457,7 @@ class Productos extends MX_Controller {
         }
         $data['cod'] = $cod;
         $res['view'] = $this->load->view('product_detail', $data, TRUE);
-      
+        $res['servicio']=null;
         
         $res_slidebar['productos_marca'] = $this->generic_model->get_all('billing_marca');
         $res_slidebar['grupos_producto'] = $this->generic_model->get_data(
