@@ -5,8 +5,12 @@
                 <div class="user-menu">
                     <ul>
                         <?php
-						if(@$this->user){
-                        foreach ($setions as $value) {
+						if(@$this->user!=true){
+                            echo "<li><a href='../portal/index/logout'><i class='fa fa-user'></i> Logout</a></li> ";
+                        
+						}
+						else{
+							foreach ($setions as $value) {
                             if ($value->acceso == 'no-registered' AND ! empty($this->user->id)) {
                                 continue;
                             }
@@ -24,11 +28,7 @@
                             echo Close('a');
                             echo '</li>';
                         }
-						}
-						else{
 							
-							echo "<li><a href=''><i class='fa fa-user'></i> Logout</a></li>
-                       ";
 						}
                         ?>
                     </ul>
@@ -130,5 +130,6 @@ $this->load->view('register_modal');
         $('#dc_mega-menu-orange').dcMegaMenu({rowItems: '4', speed: 'fast', effect: 'fade'});
     });
 </script>
+
 
 

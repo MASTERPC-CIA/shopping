@@ -57,7 +57,7 @@ class Cart extends MX_Controller{
         //echo $segment."segmnest";
         $producto = $this->generic_model->get_by_id('billing_producto', $id, 'codigo,nombreUnico,stockactual', 'codigo');
 //        $producto = $this->productos_model->por_Id($id);
-        $url = base_url() . 'shopping_cart/productos/index/' . $segment;
+        $url = base_url() . 'shopping_cart/productos/index/'.$segment;
 //        echo 'hollllllll'.$id;    
         $row = '';
         $carrito = $this->cart->contents();
@@ -77,12 +77,7 @@ class Cart extends MX_Controller{
             if(!empty($nombre_bodega[0]->id)){
                 $bodegas_id[$key] = $nombre_bodega[0]->id;
             }
-
-            //$bod_arr['id'] = $bodegas_id; 
-
         }
-//                            $bod = $bodegas_id;
-
         $stock = $this->productos_model->stock_disponoble_view($bodegas_id,$id);
         if ($carrito) {// verificamos si el carrito existe
             foreach ($carrito as $item) {//foreach contenedor

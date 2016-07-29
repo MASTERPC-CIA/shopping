@@ -7,6 +7,7 @@ if (!defined('BASEPATH'))
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 class Productos extends MX_Controller {
 
     public function __construct() {
@@ -20,7 +21,6 @@ class Productos extends MX_Controller {
     }
 
     public function index() {
-
         /* esta parte es el codigo para cargar los productos en el sidebar */
         $where_in = array('nombre' => array('PORTATILES', 'TABLETS', 'TELEFONOS/CELULARES'));
         $nombre_grupo = $this->generic_model->get_in(
@@ -49,7 +49,7 @@ class Productos extends MX_Controller {
         } else {
             $prod = array();
         }
-         $datac['remate_productos'] = $prod;
+        $datac['remate_productos'] = $prod;
 
         /* carga todas las marcas */
         $res_slidebar['productos_marca'] = $this->generic_model->get_all('billing_marca');
@@ -78,14 +78,14 @@ class Productos extends MX_Controller {
         } else {
             $prod_view = array();
         }
-		$datac["productos"] = $prod_view;
+        $datac["productos"] = $prod_view;
         $datac['producto_nombre'] = array();
         $datac["idgrupo"] = '';
         $datac['name_prod'] = '';
         $res_slidebar['grupos_producto'] = $this->generic_model->get_data(
                 'billing_productogrupo', array('vista_web' => 1, 'activo' => 1), 'codigo,nombre,descripcion, meses_garantia', array('nombre' => 'asc')
         );
-		
+
         $res["productos"] = $prod_view;
         $res['producto_nombre'] = array();
         $res["idgrupo"] = '';
@@ -98,19 +98,31 @@ class Productos extends MX_Controller {
         //$res['slidebar'] = $this->load->view('slidebar', $res_slidebar, TRUE);
         //$res['top_nav_actions'] = $this->load->view('top_nav_actions', $datah, TRUE);        
         // $res = $this->load->view('common/templates/dashboard_lte', $res);
-	    $res['img_banner'] = $this->generic_model->get('bill_empre_images',array('deleted ='=>0));
+        $res['img_banner'] = $this->generic_model->get('bill_empre_images', array('deleted =' => 0));
         $res['setions'] = $this->generic_model->get('bill_empre_sections');
-        $this->load->view('index',$res);
+        $this->load->view('index', $res);
         //$this->load->view('common/templates/dashboard_lte', $res);
-		
-	 
     }
-	//portal
-	 function logout()
-    {
-      $this->session->sess_destroy();
-      redirect( base_url('client_area/index') , 'refresh');
-    }  
+
+    //servicios
+    public function servicios() {
+
+        $res_slidebar['grupos_producto'] = $this->generic_model->get_data(
+                'billing_productogrupo', array('vista_web' => 1, 'activo' => 1), 'codigo,nombre,descripcion, meses_garantia', array('nombre' => 'asc'));
+        //mando uno para que se me presenten los servicios;
+        $res['servicio'] = "COMPU HELP";
+        $res['view'] = "servicio";
+        $res['slidebar'] = $this->load->view('slidebar', $res_slidebar, TRUE);
+        //$res['top_nav_actions'] = $this->load->view('top_nav_actions', $datah, TRUE); 
+        $res['setions'] = $this->generic_model->get('bill_empre_sections');
+        $res = $this->load->view('common/templates/dashboard_lte_portal', $res);
+    }
+
+    //portal
+    function logout() {
+        $this->session->sess_destroy();
+        redirect(base_url('client_area/index'), 'refresh');
+    }
 
     private function products_in_bod($productos) {
         $prod = '';
@@ -208,7 +220,7 @@ class Productos extends MX_Controller {
 
     public function search_group_product($idgrupo, $name_prod) {
         $datah['productos_marca'] = $this->generic_model->get_all('billing_marca');
-        $datah['title'] = 'Grupos de Productos';
+        $datah['title'] = 'COMPRA';
 //        $datah['nombreproducto'] = $name_prod;
         if (!empty($idgrupo)) {
             //$data["productos"] = $this->productos_model->get_products_codigo($id);
@@ -281,9 +293,10 @@ class Productos extends MX_Controller {
         $datah['idgrupo'] = $idgrupo;
         $datah['name_prod'] = $name_prod;
         $res['view'] = $this->load->view('products', $datah, TRUE);
+        $res['servicio'] = "COMPRA";
         $res['slidebar'] = $this->load->view('slidebar', $res_slidebar, TRUE);
         //$res['top_nav_actions'] = $this->load->view('top_nav_actions', $datah, TRUE); 
-        $res['setions'] = $this->generic_model->get('bill_empre_sections');       
+        $res['setions'] = $this->generic_model->get('bill_empre_sections');
         $res = $this->load->view('common/templates/dashboard_lte_portal', $res);
     }
 
@@ -377,9 +390,10 @@ class Productos extends MX_Controller {
         );
 
         $res['view'] = $this->load->view('products', $data, TRUE);
+       
         $res['slidebar'] = $this->load->view('slidebar', $res_slidebar, TRUE);
         //$res['top_nav_actions'] = $this->load->view('top_nav_actions', $datah, TRUE);
-        $res['setions'] = $this->generic_model->get('bill_empre_sections');        
+        $res['setions'] = $this->generic_model->get('bill_empre_sections');
         $res = $this->load->view('common/templates/dashboard_lte_portal', $res);
     }
 
@@ -443,10 +457,11 @@ class Productos extends MX_Controller {
         }
         $data['cod'] = $cod;
         $res['view'] = $this->load->view('product_detail', $data, TRUE);
+      
+        
         $res_slidebar['productos_marca'] = $this->generic_model->get_all('billing_marca');
         $res_slidebar['grupos_producto'] = $this->generic_model->get_data(
-                'billing_productogrupo', array('vista_web' => 1, 'activo' => 1), 
-                'codigo,nombre,descripcion, meses_garantia', array('nombre' => 'asc')
+                'billing_productogrupo', array('vista_web' => 1, 'activo' => 1), 'codigo,nombre,descripcion, meses_garantia', array('nombre' => 'asc')
         );
         $res['slidebar'] = $this->load->view('slidebar', $res_slidebar, TRUE);
         $res['setions'] = $this->generic_model->get('bill_empre_sections');
@@ -630,7 +645,7 @@ class Productos extends MX_Controller {
             $this->table->add_row('', '', 'SubTotal: ', number_decimal($total_sin_desc));
             $this->table->add_row('', '', 'Descuento: ', number_decimal($descu));
             $this->table->add_row('', '', 'Subtotal Neto: ', number_decimal($total_con_desc));
-            $this->table->add_row('', '', 'IVA'. get_settings('IVA') .'%: ', number_decimal($iva));
+            $this->table->add_row('', '', 'IVA' . get_settings('IVA') . '%: ', number_decimal($iva));
             $this->table->add_row('', '', 'Valor Total: ', number_decimal($valor_total));
             if (empty($tipo_pago)) {
                 $tipo_pago = '30 D&iacute;as';
@@ -746,7 +761,7 @@ class Productos extends MX_Controller {
 
         $this->load->library('mpdf60/mpdf');
         $mpdf = new mPDF();
-       
+
         $stylesheet = file_get_contents('./resources/bootstrap-3.2.0/css/bootstrap.min.css');
         $mpdf->WriteHTML($stylesheet, 1);
         $mpdf->WriteHTML($this->load->view('shopping_cart/products_catalogpdf', $datah, true));
@@ -754,6 +769,7 @@ class Productos extends MX_Controller {
         $mpdf->Output('./uploads/catalogospdf/' . $name_catalog . '.pdf', 'F');
         return $mpdf;
     }
+
 // Crea, guarda en Drive y presenta la factura en formato pdf
     public function create_pdf($idgrupo, $name_prod) {
         $mpdf = $this->generar_catalogo_pdf($idgrupo, $name_prod);
