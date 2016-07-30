@@ -1,35 +1,34 @@
- <div class="header-area">
+<div class="header-area">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
                 <div class="user-menu">
                     <ul>
                         <?php
-						if(@$this->user!=true){
-                            echo "<li><a href='../portal/index/logout'><i class='fa fa-user'></i> Logout</a></li> ";
-                        
-						}
-						else{
-							foreach ($setions as $value) {
-                            if ($value->acceso == 'no-registered' AND ! empty($this->user->id)) {
-                                continue;
-                            }
-                            if ($value->position != 'center') {
-                                continue;
-                            }
-                            if ($value->uri_type == 'internal') {
-                                $value->uri = base_url($value->uri);
-                            }
+                        $sess_id = $this->session->userdata('userid');
 
-                            echo '<li>';
-                            echo Open('a', array('href' => $value->uri, 'data-toggle' => "modal"));
-                            echo tagcontent('i', '', array('class' => 'fa fa-user'));
-                            echo $value->name;
-                            echo Close('a');
-                            echo '</li>';
+                        if (!empty($sess_id)) {
+                            echo "<li><a href='logout'><i class='fa fa-user'></i> Logout</a></li> ";
+                        } else {
+
+                            foreach ($setions as $value) {
+                                if ($value->acceso == 'no-registered' AND ! empty($this->user->id)) {
+                                    continue;
+                                }
+                                if ($value->position != 'center') {
+                                    continue;
+                                }
+                                if ($value->uri_type == 'internal') {
+                                    $value->uri = base_url($value->uri);
+                                }
+                                echo '<li>';
+                                echo Open('a', array('href' => $value->uri, 'data-toggle' => "modal"));
+                                echo tagcontent('i', '', array('class' => 'fa fa-user'));
+                                echo $value->name;
+                                echo Close('a');
+                                echo '</li>';
+                            }
                         }
-							
-						}
                         ?>
                     </ul>
                 </div>
@@ -50,7 +49,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="shopping-item">
-                    <?php $this->load->view('compra'); ?>
+<?php $this->load->view('compra'); ?>
                 </div>
             </div>
         </div>
@@ -65,52 +64,52 @@
                     <ul class="nav navbar-nav">
 
 
-                        <?php
-                        echo "<ul id='dc_mega-menu-orange' class='dc_mm-orange'> ";        
-                        foreach ($setions as $value) {
-                            if ($value->acceso == 'no-registered' AND ! empty($this->user->id)) {
-                                continue;
-                            }
-                            if ($value->position != 'left') {
-                                continue;
-                            }
+<?php
+echo "<ul id='dc_mega-menu-orange' class='dc_mm-orange'> ";
+foreach ($setions as $value) {
+    if ($value->acceso == 'no-registered' AND ! empty($this->user->id)) {
+        continue;
+    }
+    if ($value->position != 'left') {
+        continue;
+    }
 
-                            if ($value->uri_type == 'internal') {
-                                $value->uri = base_url($value->uri);
-                            }
-                            if ($value->name == 'Productos') {
-                                echo "<li><a data-toggle='modal' href='" . $value->uri . "'>" . $value->name . "</a>
+    if ($value->uri_type == 'internal') {
+        $value->uri = base_url($value->uri);
+    }
+    if ($value->name == 'Productos') {
+        echo "<li><a data-toggle='modal' href='" . $value->uri . "'>" . $value->name . "</a>
                                             <ul>";
 
-                                $c = 0;
-                                foreach ($grupos_producto as $g) {
+        $c = 0;
+        foreach ($grupos_producto as $g) {
 
-                                    if ($c == 0) {
-                                        echo '  <li>';
-                                        echo '   <ul>';  # code...
-                                    }
-                                    $c++;
-                                    echo '  <li><a href="' . base_url('shopping_cart/productos/search_group_product/' . $g->codigo . '/' . $g->nombre) . '">' . $g->nombre . '</a></li>';
-                                    if ($c == 20) {
-                                        echo '   </ul>';  # code...
-                                        echo '  </li>';
-                                        $c = 0;
-                                    }
-                                }
-                                echo '   </ul>';  # code...
-                                echo '  </li>';
+            if ($c == 0) {
+                echo '  <li>';
+                echo '   <ul>';  # code...
+            }
+            $c++;
+            echo '  <li><a href="' . base_url('shopping_cart/productos/search_group_product/' . $g->codigo . '/' . $g->nombre) . '">' . $g->nombre . '</a></li>';
+            if ($c == 20) {
+                echo '   </ul>';  # code...
+                echo '  </li>';
+                $c = 0;
+            }
+        }
+        echo '   </ul>';  # code...
+        echo '  </li>';
 
-                                echo " </ul></li>";
-                            } else {
-                                echo '<li>';
-                                echo Open('a', array('href' => $value->uri, 'data-toggle' => "modal"));
+        echo " </ul></li>";
+    } else {
+        echo '<li>';
+        echo Open('a', array('href' => $value->uri, 'data-toggle' => "modal"));
 
-                                echo tagcontent('div', $value->name);
-                                echo Close('a');
-                                echo '</li>';
-                            }
-                        }
-                        ?>
+        echo tagcontent('div', $value->name);
+        echo Close('a');
+        echo '</li>';
+    }
+}
+?>
 
 
                     </ul> 

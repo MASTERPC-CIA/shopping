@@ -85,6 +85,7 @@ class Cart extends MX_Controller {
         /* la variable $row contiene el rowid y el qty de cada producto concatenados; si esta
          * variable no está vacia significa que se debe actualizar el producto */
         //   echo $stock."stcok";
+        $msg='';
         if ($row !== '') {
 
             $this->update($row, $url);
@@ -109,9 +110,10 @@ class Cart extends MX_Controller {
             echo tagcontent('script', 'alertaError("' . $msg . '")');
             //echo warning_msg('El producto no se pudo agregar!');
         }
-        $data[0]['total_cart'] = "TU COMPRA $" . number_decimal($this->cart->total()) . "+iva";
-        $data[1]['mensaje'] = $msg;
-        json_encode($total_cart);
+      //  $data[0]['total_cart'] = "TU COMPRA $" . number_decimal($this->cart->total()) . "+iva";
+        //$data[1]['mensaje'] = $msg;
+        //json_encode($data);
+         echo "<script languaje=\"javascript\">alert('blablabla javascript')</script>"; 
     }
 
 /// fin de la método  add

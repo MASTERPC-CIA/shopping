@@ -121,7 +121,7 @@ class Productos extends MX_Controller {
     //portal
     function logout() {
         $this->session->sess_destroy();
-        redirect(base_url('client_area/index'), 'refresh');
+        redirect(base_url('shopping_cart/productos/'), 'refresh');
     }
 
     private function products_in_bod($productos) {
